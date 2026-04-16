@@ -48,5 +48,51 @@ class Program
         #endregion
 
 
+
+
+        #region Exercise 2: Leaderboard
+
+        SortedDictionary<int, string> leaderboard = new SortedDictionary<int, string>()
+        {
+            {500, "Ahmed"},
+            {200, "Sara"},
+            {800, "Ali"},
+            {350, "Mona"}
+        };
+
+   
+        Console.WriteLine("Leaderboard:");
+        foreach (var entry in leaderboard)
+        {
+            Console.WriteLine($"Score: {entry.Key}, Player: {entry.Value}");
+        }
+
+       
+        var firstEntry = leaderboard.First();
+        Console.WriteLine("\nFirst Score: " + firstEntry.Key);
+        Console.WriteLine("First Player: " + firstEntry.Value);
+
+       
+        bool has500 = leaderboard.ContainsKey(500);
+        Console.WriteLine("\nContains score 500? " + has500);
+
+        
+        if (leaderboard.TryGetValue(999, out string player))
+            Console.WriteLine("Player with score 999: " + player);
+        else
+            Console.WriteLine("Score 999 not found");
+
+        
+        leaderboard.Remove(200);
+
+     
+        Console.WriteLine("\nUpdated Leaderboard:");
+        foreach (var entry in leaderboard)
+        {
+            Console.WriteLine($"Score: {entry.Key}, Player: {entry.Value}");
+        }
+        #endregion
+
+
     }
 }
