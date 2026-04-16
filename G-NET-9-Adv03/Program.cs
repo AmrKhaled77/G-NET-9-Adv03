@@ -191,7 +191,45 @@ class Program
         #endregion
 
 
-       
+        #region Exercise 5: Print Queue Simulator
+        Queue<string> printQueue = new Queue<string>();
+        printQueue.Enqueue("Report.pdf");
+        printQueue.Enqueue("Invoice.pdf");
+        printQueue.Enqueue("Letter.docx");
+        printQueue.Enqueue("Resume.pdf");
+        printQueue.Enqueue("Photo.jpg");
+
+        
+        Console.WriteLine("Queue Contents:");
+        foreach (var doc in printQueue)
+        {
+            Console.WriteLine(doc);
+        }
+        Console.WriteLine("Count: " + printQueue.Count);
+
+        
+        Console.WriteLine("\nNext document to print: " + printQueue.Peek());
+
+        
+        Console.WriteLine("\nProcessing Queue:");
+        while (printQueue.Count > 0)
+        {
+            string doc = printQueue.Dequeue();
+            Console.WriteLine("Printing: " + doc);
+        }
+
+        
+        Console.WriteLine("\nTrying to dequeue from empty queue:");
+        if (printQueue.Count > 0)
+        {
+            string Result = printQueue.Dequeue();
+            Console.WriteLine("Dequeued: " + Result);
+        }
+        else
+        {
+            Console.WriteLine("Queue is empty, nothing to dequeue.");
+        }
+        #endregion
 
 
 
