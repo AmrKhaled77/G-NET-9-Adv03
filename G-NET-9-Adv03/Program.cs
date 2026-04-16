@@ -233,5 +233,52 @@ class Program
 
 
 
+        #region Exercise 6: Browser History (Undo)
+
+        Stack<string> history = new Stack<string>();
+
+        history.Push("google.com");
+        history.Push("github.com");
+        history.Push("stackoverflow.com");
+        history.Push("youtube.com");
+        history.Push("claude.ai");
+
+       
+        Console.WriteLine("Current Page: " + history.Peek());
+
+       
+        Console.WriteLine("\nGoing Back:");
+        for (int i = 0; i < 3; i++)
+        {
+            if (history.Count > 0)
+            {
+                string page = history.Pop();
+                Console.WriteLine("Leaving: " + page);
+            }
+        }
+
+        if (history.Count > 0)
+            Console.WriteLine("\nCurrent Page After Back: " + history.Peek());
+        else
+            Console.WriteLine("\nNo pages left.");
+
+        while (history.Count > 0)
+        {
+            history.Pop();
+        }
+
+        Console.WriteLine("\nTrying to Pop from empty stack:");
+        if (history.Count > 0)
+        {
+            string page = history.Pop();
+            Console.WriteLine("Popped: " + page);
+        }
+        else
+        {
+            Console.WriteLine("Stack is empty, nothing to pop.");
+        }
+        #endregion
+
+
     }
 }
