@@ -94,5 +94,52 @@ class Program
         #endregion
 
 
+
+        #region Exercise 3: Phone Book
+
+        Dictionary<string, string> phoneBook = new Dictionary<string, string>()
+        {
+            {"Ahmed", "01011111111"},
+            {"Sara", "01022222222"},
+            {"Ali", "01033333333"},
+            {"Mona", "01044444444"}
+        };
+
+      
+        phoneBook["Omar"] = "01055555555";   
+        phoneBook["Ahmed"] = "01100000000"; 
+
+        
+        try
+        {
+            phoneBook.Add("Sara", "01299999999");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error adding duplicate with Add(): " + ex.Message);
+        }
+
+        
+        bool added = phoneBook.TryAdd("Ali", "01288888888");
+        Console.WriteLine("TryAdd Ali success? " + added);
+
+        
+        Console.WriteLine("\nContains 'Youssef'? " + phoneBook.ContainsKey("Youssef"));
+
+        
+        string result = phoneBook.TryGetValue("Youssef", out string number)
+                        ? number
+                        : "Not Found";
+        Console.WriteLine("Youssef's number: " + result);
+
+        
+        Console.WriteLine("\nAll Names:");
+        Console.WriteLine(string.Join(", ", phoneBook.Keys));
+
+        
+        Console.WriteLine("All Numbers:");
+        Console.WriteLine(string.Join(", ", phoneBook.Values));
+        #endregion
+
     }
 }
